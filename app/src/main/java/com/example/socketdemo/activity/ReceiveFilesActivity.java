@@ -616,7 +616,12 @@ public class ReceiveFilesActivity extends BaseActivity implements MultiItemTypeA
             //获取当前点击WiFi的SSID
             ScanResult scanResult = mChooseHotspotAdapter.getDatas().get(position);
             mSelectedSSID = scanResult.SSID;
-
+            try {
+                mWifiMgr.connectWifi(mSelectedSSID, "88888888", mScanResults);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            /*
             if((scanResult.capabilities != null && !scanResult.capabilities.equals(WifiMgr.NO_PASSWORD)) || (scanResult.capabilities != null && !scanResult.capabilities.equals(WifiMgr.NO_PASSWORD_WPS))){
                 //弹出密码输入框
                 showDialogWithEditText(mSelectedSSID, new OnWifiPasswordConfirmListener() {
@@ -644,6 +649,7 @@ public class ReceiveFilesActivity extends BaseActivity implements MultiItemTypeA
                     e.printStackTrace();
                 }
             }
+             */
         }
     }
 

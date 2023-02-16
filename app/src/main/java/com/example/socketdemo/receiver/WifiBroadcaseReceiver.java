@@ -9,6 +9,7 @@ import android.net.wifi.WifiManager;
 
 import com.example.socketdemo.wifitools.WifiMgr;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,7 +35,13 @@ public abstract class WifiBroadcaseReceiver extends BroadcastReceiver {
                 List<ScanResult> scanResults = wifiMgr.getScanResults();
                 if(wifiMgr.isWifiEnabled() && scanResults != null && scanResults.size() > 0) {
                     //成功扫描
-                    onScanResultsAvailable(scanResults);
+                    List<ScanResult> filter = new ArrayList<>();
+                    for (ScanResult result : scanResults) {
+                        if (result.SSID.contains("aa")) {
+                            filter.add(result);
+                        }
+                    }
+                    onScanResultsAvailable(filter);
                 }
             } else if(intent.getAction().equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
                 //网络状态改变的广播

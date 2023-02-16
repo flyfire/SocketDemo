@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.socketdemo">
+          package="com.example.socketdemo"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <!-- 在sdcard中创建/删除文件的权限 -->
