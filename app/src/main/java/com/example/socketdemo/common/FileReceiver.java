@@ -151,6 +151,8 @@ public class FileReceiver extends BaseTransfer implements Runnable {
                 }
             }
         }
+        fos.flush();
+        fos.close();
 
         //文件接收成功
         if(mOnReceiveListener != null) {

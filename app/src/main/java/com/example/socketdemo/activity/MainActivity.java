@@ -1,9 +1,11 @@
 package com.example.socketdemo.activity;
 
+import android.util.Log;
 import android.view.View;
 
 import com.example.socketdemo.R;
 import com.example.socketdemo.base.BaseActivity;
+import com.example.socketdemo.wifitools.Version;
 
 public class MainActivity extends BaseActivity {
 
@@ -27,6 +29,7 @@ public class MainActivity extends BaseActivity {
         //发送文件
 //        pushActivity(ChooseReceiverActivity.class);
         pushActivity(SendFilesActivity.class);
+        Log.d("solarex", "sdk = " + Version.SDK);
     }
 
     public void receiveFiles(View view) {
